@@ -1,1 +1,63 @@
 
+- Dashboard
+   Add Remove Widgets
+      Monitoring (Activity Overview, Alert History [2x1], Alert Status, Computer Status, License Information, 
+         Security Update Status)
+      System (My Sign-in History, My User Summary [2x1], Software Updates, System Event History [2x1])
+      Ransomware (Ransomware Event History [3x1], Ransomware Status, Anti-Malware, Anti-Malware Event History [2x1], 
+         Anti-Malware Protection Status, Anti-Malware Status (Computers) [2x1], Anti-Malware Status (Malware) [2x1], 
+         Malware scan Status [2x1], Web Reputation, Web Reputation Computer Activity, Web Reputation Event History [2x1],
+         Web Reputation URL Activity
+      Firewall (Firewall Activity (Detected), Firewall Activity (Prevented), Firewall Computer Activity (Detected), Firewall
+         Computer Activity (Prevented), Firewall Event History [2x1], Firewall IP Activity (Detected), Firewall IP Activity
+         (Prevented),Firewall Port Activity (Detected), Firewall Port Activity (Prevented), Reconnaissance Scan Activity,
+         Reconnaissance Scan Computers Reconnaissance Scan History [2x1]
+      Intrusion Prevention (Application Type Activity (Detected), Application Type Activity (Prevented), Application Type Treemap
+         (Detected) [2x2], Application Type Treemap (Prevented) [2x2], IPS Activity (Detected), IPS Activity (Prevented), IPS
+         Computer Activity (Detected), IPS Computer Activity (Prevented), IPS Event History [2x1], IPS IP Activity (Detected), 
+          IPS IP Activity (Prevented), Latest IPS Activity (Detected), Latest IPS Activity (Prevented))
+      Integrity Monitoring (Integrity Monitoring Activity, Integrity Monitoring Computer Activity, 
+         Integrity Monitoring Event History [2x1], Integrity Monitoring Key Activity)
+      Log Inspection (Log Inspection Activity, Log Inspection Computer Activity, Log Inspection Description Activity, 
+         Log Inspection Event History [2x1]
+      Application Control (Application Control Maintenance Mode Status [2x1])
+
+
+- Action
+
+
+- Event & Reports
+
+
+- Computer / Create Groups in DSaaS
+   AWS
+   Azure
+   VDI
+   Citrix
+   vmware
+   Docker
+   Server (AIX, Linux, Solaris, Windows)
+
+
+- Policies
+
+
+- Administration
+   System Settings
+      Agents
+      Alerts
+      Contexts
+      Event Forwarding
+      System Events
+      Security
+      Updates
+      Smart Feedback
+      Proxies
+      Advanced
+   Scheduled Tasks
+      Standard: 
+         Component Update Tasks (General: Daily, 07:05 Central European Time, every Day; Target Host Details: all Computers)
+   Event-Based Tasks
+   User Management
+   Updates
+   
