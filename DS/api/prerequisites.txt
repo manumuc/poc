@@ -1,1 +1,121 @@
+# GEneral Tempalte - contains login and logout functions
+#- Tool (Programming language) for developing the REST API app - needs to support XML  or JSON encoding i.e Powershell 4.0
+#- Add new role** (right and privileges to work with REST API and Application Control Module (Administration > User Management > Roles > new / General / "Allow Access to Deep Security Manager User Interface" (uncheck) and "Allow to Access the web service API"(check)
+Under other rights add the right for AC (but not unauthorized change ...)
+#-Create DS User via Mgmt console 
+#- Create Script 
+#- Run Script i.e. Powershell: Set-execution policy Unrestricted and run script
 
+# Uncomment below section in order to disable TLS certificate validation
+#Add-Type @"
+# using System.Net;
+# using System.Security.Cryptography.X509Certificates;
+# public class TrustAllCertsPolicy : ICertificatePolicy {
+# public bool CheckValidationResult(
+# ServicePoint srvPoint,
+# X509Certificate certificate,
+# WebRequest request,
+# int certificateProblem
+# ) {
+# return true;
+# }
+# }
+#"@
+
+#[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+$dsm = 'https://app.deepsecurity.trendmicro.com'
+$username = 'api-ac-usr'
+$password = '...'
+
+$request = New-Object PSObject -Property @{
+   dsCredentials = @{
+   userName = $username
+   password = $password
+   }
+}
+
+$sID = Invoke-RestMethod -Method POST -Body $(ConvertTo-Json $request) -Uri
+"$dsm/rest/authentication/login" -SessionVariable session -ContentType 'application/json'
+
+$cookie = New-Object Net.Cookie 'sID', $sID, '/rest', $(New-Object Uri $dsm).Host
+$session.Cookies.Add($cookie)
+$session.Headers.Add('Accept', 'application/json')
+$cookie = New-Object Net.Cookie 'sID', $sID, '/rest', $(New-Object Uri $dsm).Host
+$session.Cookies.Add($cookie)
+$session.Headers.Add('Accept', 'application/json')
+
+try {
+# SOME COOL JOB!
+}
+
+finally {
+$logout = Invoke-RestMethod -Method DELETE -Uri
+"$dsm/rest/authentication/logout?sID=$sID"
+}
+
+
+
+# SOME COOL JOB! might be:
+#1. GET host ID:
+$computer = 'RHEL.education.trendlabs.com'
+$response = Invoke-RestMethod -Uri "$dsm/rest/hosts/hostname/$computer" -WebSession
+$session
+$hostid = $response.hosts.hosts.id
+
+#2. CREATE SHARED RULESET / INVENTORY SCAN
+#2. Description: create a shared ruleset and runa n inventory scan on the target computer (serves as a template for the shared ruleset)
+#2. The generated shared ruleset can be used on other identical computers protected by appcontrol - 
+#1. Note: 1. Code Snipped is needed before this one!
+$request = New-Object PSObject -Property @{
+   CreateInventoryRequest = @{
+      hostID = $hostid
+      createRuleset = 'true'
+      name = "Ruleset from $computer"
+      description = "Ruleset created from $computer"
+   }
+}
+$response = Invoke-RestMethod -Method POST -Body $(ConvertTo-Json $request) -Uri "$dsm/rest/software-inventory" -WebSession $session -ContentType 'application/json'
+
+# 3. Enter maintenance mode
+# 3. Description: enable maintenance mode via REST API
+$request = New-Object PSObject -Property @{
+   ModifyTrustedUpdateModeRequest = @{
+   duration = 15
+   enabled = "true"
+   }
+}
+Invoke-RestMethod -Method POST -Body $(ConvertTo-Json $request) -Uri
+"$dsm/rest/hosts/$hostid/trusted-update-mode" -WebSession $session -ContentType
+'application/json
+
+#4. Export Ruleset Content
+#4. description: retrieve ruleset from a target computer
+#4. Note: use get Host ID before this snippet
+$ruleset = "Ruleset from $computer"
+$response = Invoke-RestMethod -Uri "$dsm/rest/rulesets" -WebSession $session
+$rulesetid = $response.ListRulesetsResponse.rulesets |
+   Where-Object {$_.name -eq $ruleset} |
+   Select-Object -Expand rulesetID
+$filename = 'Ruleset.csv'
+$response = Invoke-RestMethod -Uri "$dsm/rest/rulesets/$rulesetid" -WebSession $session
+$response.DescribeRulesetResponse.ruleset.rules |
+   Select-Object path, fileName, sha256, size, action |
+   Export-Csv -Path $filename -Encoding Default -NoTypeInformation
+   
+# 5. Export/Delete Ruleset
+# 5. Description: 
+# 5. Note: GEt Host ID code snipped before to define target computer
+$response = Invoke-RestMethod -Uri "$dsm/rest/software-inventory" -WebSession $session
+$inventoryid = $response.ListInventoriesResponse.inventories |
+   Where-Object { $_.hostID -eq $hostid -and $_.state -eq 'complete'} |
+   Sort-Object -Property completedDate -Descending |
+   Select-Object -First 1 -Expand inventoryID
+$filename = 'Inventory.csv'
+$response = Invoke-RestMethod -Uri "$dsm/rest/software-inventory/$inventoryid/details" -
+   WebSession $session
+$response.GetInventoryResponse.inventoryItems |
+   Select-Object path, fileName, sha256, size |
+   Export-Csv -Path $filename -Encoding Default -NoTypeInformation
+# in case you want to delete inventory
+   #Invoke-RestMethod -Method DELETE -Uri "$dsm/rest/software-inventory/$inventoryid" -
+   WebSession $session
