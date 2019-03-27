@@ -1,10 +1,11 @@
-# GEneral Tempalte - contains login and logout functions
+# General Tempalte - contains login and logout functions
 #- Tool (Programming language) for developing the REST API app - needs to support XML  or JSON encoding i.e Powershell 4.0
 #- Add new role** (right and privileges to work with REST API and Application Control Module (Administration > User Management > Roles > new / General / "Allow Access to Deep Security Manager User Interface" (uncheck) and "Allow to Access the web service API"(check)
 Under other rights add the right for AC (but not unauthorized change ...)
 #-Create DS User via Mgmt console 
 #- Create Script 
 #- Run Script i.e. Powershell: Set-execution policy Unrestricted and run script
+#- Verify via DS Console - Policies / Rule / Application Control Rulesets 
 
 # Uncomment below section in order to disable TLS certificate validation
 #Add-Type @"
