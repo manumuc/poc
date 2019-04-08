@@ -2,43 +2,51 @@ von <powerpoint bis
 Readme: 
 Direkter Download von der Trend Micro Webseite:
 https://files.trendmicro.com/products/deepsecurity/en/11.0/DS_Agent-Windows_11.0_U8_readme.txt
-\d9rhttps://files.trendmicro.com/products/deepsecurity/en/11.0/Agent-Windows-11.0.0-662.x86_64.zip
+https://files.trendmicro.com/products/deepsecurity/en/11.0/Agent-Windows-11.0.0-662.x86_64.zip
+
+
 
 ASSI Schaefer
 manuela_rotter@trendmicro.de
 Sapient!23345
-
-
-
-Download vom der Deep Security SaaS Webkonsole (Account muss eingerichtet sein)
-https://app.deepsecurity.trendmicro.com:443/software/agent/Windows/x86_64/agent.msi
-
-SSI Schaefer
 accountname: (Passwort hat sich nicht veraendert
 
 
 Voraussetzungen:
-- gehen Sie sicher, dass sie mit der Testinstanz ins internet kommen und die folgende SaaS Web Konsole mit ihrem Browswer erreichen koennen:
+- gehen Sie sicher, dass sie mit der Windows 10 Testinstanz ins internet kommen und die folgende SaaS Web Konsole mit ihrem Browswer erreichen koennen:
 https://app.deepsecurity.trendmicro.com:443
-- Pruefen Sie ob sie im Browser im Vorherigen Punkt einen Proxy genutzt haben. 
+- Pruefen Sie ob sie im Browser im vorherigen Punkt einen Proxy genutzt haben und nutzen sie ihn in der Installationsanleitung (statt 192.168.1.2:8080) 
+
+0, Download des installationspakets
+Download vom der Deep Security SaaS Webkonsole und lokal apeichern z.B. nach %temp%
+https://app.deepsecurity.trendmicro.com:443/software/agent/Windows/x86_64/agent.msi
 
 Installation des Agentenpacketes lokal auf der zu schuetzenden Testinstanz:
 1, Laden Sie folgendes Packete herunter, speichern Sie es in ihrem Temp Verzeichnis und installieren Sie es auf der Zielinstanz
 https://app.deepsecurity.trendmicro.com:443/software/agent/Windows/x86_64/agent.msi
-2, Fuehren das heruntergeladene Packet aus: agent.msi und folgend den Anweisungen.
+2, Fuehren das heruntergeladene Packet aus: agent.msi und folgend den Anweisungen (welcome screen: weiter; license screen: Lizenzbestimmung aktivieren und weiter; destination folder screen: standard belassen oder anpasse und weiter; installation ready screen: install; installation fertstellen).
 3, Fuehren Sie auf der Command line folgenden Befehle aus:
 REM  "dsm://agents.deepsecurity.trendmicro.com:443/ Proxyport://{0}/ 192.168.1.2:8080
-REM reset des Agenten 
+REM reset des Agenten  (Rueckmeldung: HTTP Status: 200 OK)
 "c:\Program Files\Trend Micro\Deep Security Agent\dsa_control" -r
-REM setzten des Proxies um den Saas Deep Security Manager zu erreichen  
+REM optional: setzten des Proxies um den Saas Deep Security Manager zu erreichen (Rueckmeldung: 
+Add proxy-address:[dsm_proxy] with value:[dsm_proxy://192.168.1.2:8080/])  
 "c:\Program Files\Trend Micro\Deep Security Agent\dsa_control" -x "dsm_proxy://192.168.1.2:8080"
-REM setzten des Proxies um die Saas Deep Security Update Source (Relay) zu erreichen  
-"c:\Program Files\Trend Micro\Deep Security Agent\dsa_control" -y "Proxyport://{0}/ 192.168.1.2:8080"
+REM  optional: setzten des Proxies um die Saas Deep Security Update Source (Relay) zu erreichen  
+REM Rueckmeldung: Add relay proxy-address:[relay_proxy] with value:[relay_proxy://192.168.1.2:8080
+"c:\Program Files\Trend Micro\Deep Security Agent\dsa_control" -y "
+relay_proxy://192.168.1.2:8080"
 REM Aktivieren des DS Agenten am Saas Deep Security Manager im SSI Schaefer Tenant und Zuweisung der Windows Policy "Windows_WAMAS"
+Rueckmeldung: [...]Command session completed.
 "c:\Program Files\Trend Micro\Deep Security Agent\dsa_control" -a "dsm://agents.deepsecurity.trendmicro.com:443/" "tenantID:640D2625-3F9B-E39C-BC65-7D6C2AF65F20" "token:FFDAB59B-404A-0768-5C42-7E4ACE777046" "policyid:67"
+REM heartbeat anstossen:
+"c:\Program Files\Trend Micro\Deep Security Agent\dsa_control" -m
+Kontrolle:
+1, neue Instanz taucht auf deep Security Server auf und
+Es dauert bis zu 5 Minuten bis die Daten uebertragen sind. 
 
-Kontrolle am DSM ob neue Instanz auftaucht 
-Download folgender
+Zugewiesen wird die Policy "Windows_Wamas"; Off sind die Moduel "Firewall" und "Web Reputation".
+
 
 alles 
 ---
