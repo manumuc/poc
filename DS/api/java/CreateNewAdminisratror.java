@@ -13,37 +13,37 @@ import.com.trendmicro.deepsecurity.ApiClient;
     //BasePath needs to be https://<your DSM FQDN or IP>:4119/api
     defaultClient.setBasePath("<Your Hostname>:4119/api");
     
-    //Authentication
+    // Authentication
     // You need to enter your API Key
     ApiKeyAuth DefaultAuthentication = (ApiKeyAuth) defaultCilent.getAuthenication("DefaultAuthentication");
     DefaultAuthentication.setApiKey ("<Your API Key>");
     try {
        defaultClient.trustAllCertificates(false);
-    } catch (Exeption e) {
-       System.err.println ("An exeption occured when calling ApiClient.trustAllCertificates");
+    } catch (Exception e) {
+       System.err.println ("An exception occured when calling ApiClient.trustAllCertificates");
        e.printStackTrace();  
     }
       
-    //Initialization
+    // Initialization
     // Here the new administrator account information is set up
     AdministratorsApi instance = new AdministratorApi();
     Administrator administrator = new Administrator();
-    //Set admin account  username
+    // Set admin account  username
     administrator.username ("API Administrator");
-    //Set admin account pword   
+    // Set admin account pword   
     administrator.password ("trendmicro");
-    //Set the admin account pword to never expire
+    // Set the admin account pword to never expire
     administrator.passwordNeverExpires(true);
-    //Set the admin role
+    // Set the admin role
     // using the role ID as an integer - which is needed upfront to set the desired role
     administrator.roleID(3);
     String apiVersion = "v1";
     try {
-       //we create the new admin and print the details once the account is created
+       // we create the new admin and print the details once the account is created
        Administrator result = instance.createAdministrator(administrator, apiVersion);
        system.out.println(result);
     } catch (ApiException e) {
-       System.err.println("An exeption occured when calling Administrator's Api.createAdministrator");
+       System.err.println("An exception occured when calling AdministratorApi.createAdministrator");
        e.printStackTrace();
     } 
     }
