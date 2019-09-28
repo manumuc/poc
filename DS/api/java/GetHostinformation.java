@@ -20,7 +20,7 @@ import.com.trendmicro.deepsecurity.ApiClient;
     try {
        defaultClient.trustAllCertificates(false);
     } catch (Exception e) {
-       System.err.println ("An exeption occured when calling ApiClient.trustAllCertificates");
+       System.err.println ("An exception occured when calling ApiClient.trustAllCertificates");
        e.printStackTrace();  
     }
 
@@ -35,7 +35,7 @@ import.com.trendmicro.deepsecurity.ApiClient;
        Computers result = instance.listComputers(overrides, apiVersion)
        system.out.println(result);
     } catch (ApiException e) {
-       System.err.println("An exeption occured when calling ComputersApi.listComputers");
+       System.err.println("An exception occured when calling ComputersApi.listComputers");
        e.printStackTrace();
     } 
     }
