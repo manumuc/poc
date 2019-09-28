@@ -7,10 +7,10 @@ import.com.trendmicro.deepsecurity.ApiClient;
  public class GetHostInfromation {
 
     public static void main(String[] args) {
-    //Setup the connection to Deep Security manager
+    // Setup the connection to Deep Security manager
     // You need to enter your DSM URL
     ApiClient defaultClient = Configuration.getDefaultApi();
-    //BasePath needs to be https://<your DSM FQDN or IP>:119/api
+    // BasePath needs to be https://<your DSM FQDN or IP>:119/api
     defaultClient.setBasePath("<Your Hostname>:4119/api");
 
     // Authentication
@@ -32,7 +32,7 @@ import.com.trendmicro.deepsecurity.ApiClient;
     try {
        // get the list of computers in DSM
        // and display the data
-       Computers result = instance.listComputers(overrides, apiVersion)
+       Computers result = instance.listComputers(overrides, apiVersion);
        system.out.println(result);
     } catch (ApiException e) {
        System.err.println("An exception occured when calling ComputersApi.listComputers");
