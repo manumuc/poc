@@ -6,7 +6,7 @@ from print import pprint
 
 # Setup
 if not sys.warnoptions:
-   warings.simplefilter("ignore")
+   warnings.simplefilter("ignore")
 configuration = deepsecurity.Configuration()
 # host must be set to 
 configuration.host = '<Your Hostname or IP>'
@@ -35,5 +35,3 @@ try:
    pprint(api_response)
 except ApiException as e:
    print ("An exception occured when calling AdministratorsApi.create_administrator: %s\n" % e)
-
-
