@@ -1,0 +1,35 @@
+Apex One EN
+   GM to B2012: https://files.trendmicro.com/products/Apex%20One/2019/apexone-2019-win-en-all-in-one-b2012.exe
+   GM: http://files.trendmicro.com/products/Apex%20One/2019/apexone_2019_win_en_gm_b1071.exe
+   Hotfixes
+   - P1 (B2087: W10 112019): https://files.trendmicro.com/products/Apex%20One/2019/apex_one_2019_patch1_win_en_b2087_r1.exe
+      readme: https://files.trendmicro.com/documentation/readme/Apex%20One/2019/apex_one_2019_patch1_win_en_b2087_r1.html
+   System Requiremetns: http://docs.trendmicro.com/all/ent/apex-one/2019/en-us/apexOne_2019_req.pdf
+   Installation and Upgrade Guidee: http://docs.trendmicro.com/all/ent/apex-one/2019/en-us/apexOne_2019_iug.pdf
+   Administrator's Guide: http://docs.trendmicro.com/all/ent/apex-one/2019/en-us/apexOne_2019_ag.pdf
+
+Important information:
+   Apex one: Endpoint Sensor supported features on different platforms: https://success.trendmicro.com/solution/1122502
+   Exclude Endpoint Sensor: https://success.trendmicro.com/solution/1123009
+   How to install the apex one endpoint sensor after the user has installed apex one: https://success.trendmicro.com/solution/1123009
+
+Prerequisites:
+Database:
+   MS SQL needs to support following features, which are available since 2016 SP1++ (not SQL Express)
+      Full-Text and Semantic Extractions for Search
+      Data compression
+      Table and index partitioning
+   See PCCSRV\Private\ofcserver.ini | [DBserver]
+   
+Coexistence Mode
+   Trend Micro does support OfficeScan/Apex One running with other non-AV security endpoint solutions such as 
+      - Data Loss Prevention (DLP) and 
+      - Endpoint Detection and Response (EDR).
+      
+   Microsoft Windows Defender
+   
+   Important: Exclusion lists/trusted processes 
+
+
+Policy Configuration
+- Policies > Policy Management > Create a new policy or modify the existing policy
