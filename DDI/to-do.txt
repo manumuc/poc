@@ -1,0 +1,91 @@
+Add On
+TMSPS P4...3.3.1227: 
+   GM Download: https://files.trendmicro.com/tmsps/3.3/tmsss-sp-0-3.3-1064.x86_64.tgz
+   Latest Update Download: https://files.trendmicro.com/products/tmsps/3.3/Patch/1227/TMSPS_3.3_linux_MUI_patch4_B1227.zip
+   Administrator´s Guide: https://docs.trendmicro.com/all/ent/ddd/v5.1/en-us/ddd_consolidated_5.1_ag.pdf
+   Readme: https://docs.trendmicro.com/all/ent/ddd/v5.1/en-us/ddd_distributed_5.1_readme.txt
+DDD 5.1...5.1.
+ GM Download: only through dedicated Link
+ Latest Update: only through dedicated Link!
+ Readme: https://docs.trendmicro.com/all/ent/ddd/v5.1/en-us/ddd_consolidated_5.1_ag.pdf
+ Administrator´s Guide: https://docs.trendmicro.com/all/ent/ddd/v5.1/en-us/ddd_consolidated_5.1_ag.pdf
+ 
+01. General
+   GM Download: only through dedicated Link
+   Latest Update: only through dedicated Link!
+important web sites:
+   Data collection notes (5.6) https://success.trendmicro.com/solution/000232357
+   Allow URLs through proxy:https://success.trendmicro.com/solution/1122645
+   Readme: http://docs.trendmicro.com/all/ent/ddi/v5.6/en-us/ddi_5.6_readme.html
+   Quickinstall: http://docs.trendmicro.com/all/ent/ddi/v5.6/en-us/ddi_5.6_520-1200_qsc.pdf
+      http://docs.trendmicro.com/all/ent/ddi/v5.6/en-us/ddi_5.6_4200-9200_qsc.pdf
+   Installation and Deployment Guide: http://docs.trendmicro.com/all/ent/ddi/v5.6/en-us/ddi_5.6_idg.pdf
+   Administrator´s Guide: http://docs.trendmicro.com/all/ent/ddi/v5.6/en-us/ddi_5.6_ag.pdf
+   Szslog Content Mappaing: http://docs.trendmicro.com/all/ent/ddi/v5.6/en-us/ddi_5.6_sg.pdf   
+   
+01.00 Confirm Agenda (issues, contact person, 
+01.01 Monitor port via Port Mirror switch or TAP, depending on model up to 7 Ports
+01.02 Traffic to analyse (at least: SMTP, HTTP/HTTPS, DNS, CIFS, 
+01.03. Risk management: where are the critical and sensitive data 
+   (set mirror port nearest possilbe to endpoints, behind perimeter defenses, etc.
+   lateral movements depending traffic, performance, ...)
+01.04 Dedicated Management Port (IP, DNS, GW) - internet access for updates, Smart Protection network
+      Allow URLs through proxy:https://success.trendmicro.com/solution/1122645
+01.05.Dirty Line
+   see for websites
+      Note: There are limitations if no internet access is available: 
+   https://success.trendmicro.com/solution/1102314
+   
+See if the network services are active: Administration > System Settings > Network Interface
+Verify if DDI is receiving network packets:  Network Traffic Dump screen/ select port 
+Errors in Systemlogs: Administration > System Logs 
+01.06 iDRAC network settings IP address
+
+
+02. Preconfigure Appliance (via console - IP address, IP, GW, DNS
+  needed: USB keybord adn VGA monitor, might be via RS323 Serial port
+  user: admin / admin
+03. Initial config 
+   https://<ddi-addr>
+03.01  Enter License Key: Administration > Product License
+03.02 Update Appliance - if necessary 
+   Patches(Administration > Updates > Product Updates > Hot Fixes / Patches)
+   Pattern (Administration > Updates > Component Updates > Manual)
+03.03  Configuration
+   Time Server (Administration > System Settings > Time)
+   VA Image (Internal Virtual Analyser > Images)
+   Network Groups (Administration > Network Groups and Assets > Network Groups)
+   Registered Service, Local Domains Dopmains  (Administration > Network Groups and Assets > Registered Services)
+   Proxy Settings: Administration > System Settings > Proxy
+   TimeOut Settings: Administration > System Settings > Session Timeout
+   Local Domains Dopmains (Administration > Monitoring / Scanning > Deny List / Allow List)
+   Maximum File Size for VA submission (Administration > System Maintenance > Storage Maintenance)
+   VA File submission (Administration > Virtual Analyzer > File Submissions)
+   
+   Dashboard > Threat Monitoring
+04. Test  
+   Backend Services: Logs > Network Services Diagnostics.
+   hxxp://2016.eicar.org/download/eicar.com
+   hxxp://wrs21.winshipway.com/, hxxp://wrs41.winshipway.com/ 
+   http://demo.trendenablement.com
+   Test deployments: Detection -> All Detections
+   
+   
+99. Backup Configuration
+ Administration > Network Groups and Assets > Import/Export
+ 
+ 
+EDR / XDR
+Why
+   Quick find attacks not initially prevented
+   Are we infected by this attack
+   investigate incidents to see where they spread and wht you need to do to clean up
+
+What does it
+   Automated correlation and detection
+   IOC Sweeping
+   Threat Hunting (Query of IOA)
+   Root cause analysis
+   Try to break silos (XDR) - other way: SIEM Tools
+   
+At least: 
