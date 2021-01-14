@@ -1,0 +1,29 @@
+
+
+EHLO test.tm
+MAIL FROM "test@test.tm"RCPT TO: tmems@tmmr-a1c-w19-01.tm
+RCPT TO: test <test@tmmr-ems.hopto.org>
+RCPT TO "tmems@tmmr-ems.hopto.org"
+RCPT TO: tmems@tmmr-ems.hopto.org
+tmmr-cm-w16-01.tm
+tmmr-a1c-w19-01.tm/gerd@hutbergen.onmicrosoft.com/manuela_rotter@mytmlab.com/mr@tmcas2020.onmicrosoft.com
+
+DATA
+354 (server response code)
+Date: Wed, 30 July 2019 06:04:34
+From: test@client.net
+Subject: How SMTP works
+To: user@recipient.net
+
+mitteilen, dass wir bereits eine Teillieferung aus Ihrer Bestellung verschicken konnten, so dass Sie Ihre Artikel schneller und ohne weitere Kosten erhalten. Der Rest Ihrer Bestellung wird versandt, sobald die ausstehenden Artikel für den Versand verfügbar sind.
+Ihre Sendung befindet sich nun auf dem Versandweg; eine Änderung durch Sie oder unseren Kundenservice ist nicht mehr möglich. Möchten Sie einen Artikel aus Ihrer Bestellung zurückgeben oder andere Bestellungen ansehen oder verändern, können Sie dies einfach über Meine Bestellungen auf unserer Website Amazon.de tun. 
+
+.
+
+
+# IP addr web.de
+82.165.159.2 # 	mout-xforward.web.de 
+82.165.159.3 #  	mout-xforward.web.de 
+82.165.159.4 #  	mout-xforward.web.de 
+# IP Telekom
+217.232.148.94
