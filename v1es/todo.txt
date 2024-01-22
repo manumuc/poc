@@ -1,0 +1,11 @@
+Network
+
+Firewall Exceptions (Service and Region)
+  
+proxy settings or Service Gateway
+  
+Service Gateway
+   deploy Service Gateway
+   configure the "Forward proxy" service to automate most firewall exception settings (recommended)
+
+  Configure Global Agent Proxy Settings if you already have a proxy server that you want to use
