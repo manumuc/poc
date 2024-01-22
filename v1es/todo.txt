@@ -9,3 +9,7 @@ Service Gateway
    configure the "Forward proxy" service to automate most firewall exception settings (recommended)
 
   Configure Global Agent Proxy Settings if you already have a proxy server that you want to use
+
+
+Simulation: 
+   Workbench: https://portal.eu.xdr.trendmicro.com/index.html#/workbench?isBASModalOpen=true
