@@ -1,0 +1,54 @@
+Documentation
+
+
+Knowledge Ressourcen
+Product Information (DataSheet): https://www.trendmicro.com/en_fi/business/products/user-protection/sps/endpoint/server-protect.html
+Support Page and FAQ: https://downloadcenter.trendmicro.com/index.php?regs=en&prodid=1668
+Getting Started Guide (pdf): https://docs.trendmicro.com/o-help/ent/spfs/v6.0/en-us/spfs_6.0_gsg_new.pdf
+Software Update Notifications: 
+
+Readme GM : https://docs.trendmicro.com/o-help/ent/spfs/v6.0/en-us/spfs_6.0_readme.txt
+Readme Patch2 (1304): https://files.trendmicro.com/documentation/readme/spfs/spfs_600_win_en_patch2_readme_new.txt
+Readme Critical Patch (1416): https://files.trendmicro.com/documentation/readme/spfs/spfs_600_win_en_criticalpatch_b1416_EN_critical_patch_Readme.txt
+
+
+Software
+General Downloadsite: 
+GM Installation package (1095):  https://files.trendmicro.com/products/serverprotect/SPFS60_Rel_1095_R4.exe
+Product Patch2 (1304) : https://files.trendmicro.com/products/spfs/spfs_600_win_en_patch2_b1304.exe
+Product Critical patch (1416): https://files.trendmicro.com/products/spfs/spfs_600_win_en_criticalpatch_b1416.exe
+
+
+Security Components
+
+Scan Engine: https://www.trendmicro.com/en_us/business/products/downloads.html?#scan-engines
+Pattern: https://www.trendmicro.com/en_us/business/products/downloads.html?#all-pattern-files
+
+
+Support Tool
+Case Diagnostic Tool: 
+
+
+Procedures
+
+Prerequisits
+
+
+HW Requirements
+
+
+SW Requirements
+
+
+
+Update Order
+
+Software Update Order: 
+
+
+Component Update Order: 
+1, Update the Serverprotect Information Server with the latest components and then deploy these to the Normal Servers:
+a, Virus pattern file (lpt$vpn.xxx).
+Select Enterprise Pattern from the list.
+b, Scan engine
+
