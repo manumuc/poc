@@ -1,0 +1,53 @@
+Prerequsites
+
+- Vision One Console available 
+    (if not, see "Getting started with Trend Vision One: https://docs.trendmicro.com/en-us/documentation/article/trend-vision-one-getting-started_001)
+- Make sure that Vision Onem has been updated to the Foundation Services release. (just for older instances)
+- make sure that the V1 is connected tp a idP soluiton 
+  - make sure user roles and users accounts are configured (scope and permission)
+
+- Deploy the service GW (optional)
+
+- make sure the firewall exceptions are in place (
+v1 Platform, ServiceGW, V1 Service...)
+- make sure thet existing products are connected to the product instance
+
+- Existing Trend Micro Customer
+  - Verify the 
+- New to Trend Micro 
+- MIgration from ther Vendor
+
+XDR
+  - review the detection models
+  - check existing workbench alets
+  
+- Vision ONe Endpont Security configured 
+  (if not, see Getting Started with Trend Vision One Endpoint Security: https://docs.trendmicro.com/en-us/documentation/article/trend-vision-one-getting-started_001#GUID-3E208B52-EA50-4904-A6CF-AC463EF0EA05)
+  - Setting up Endpoint Security for new Trend Micro customers: 
+  - Configure Endpoint Security and provision your endpoint protection solutions.
+  - Download the agent package: 
+- 
+Trend Vision One Endpoint Security provides centralized and comprehensive Endpoint Security with a streamlined, single console experience – a single place to deploy protection and policy, manage risk, and handle detection and response for your endpoints, servers, and workloads.
+
+
+Tip
+Configure your network environment
+Deploy a Service Gateway to minimize firewall configuration and streamline agent communication.
+
+Manage your agent deployments by:
+  Setting up endpoint groups
+  Creating default security policies
+  Downloading the correct agent installation packages
+  Test/Evaluating Trend Vision One Endpoint Security
+
+Update Trend Micro Endpoint Solutions
+Manage Your Agent Deployments
+
+SEP
+
+SWP
+
+XDR Only (Senor Only)
+
+
+
